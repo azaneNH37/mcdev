@@ -10,3 +10,4 @@
 
 * [模组数据包文件概览](mo-zu-shu-ju-bao-wen-jian-gai-lan.md)
 * [刷怪笼文件](shua-guai-long-wen-jian.md)
+* [ScEffect](sceffect.md)
