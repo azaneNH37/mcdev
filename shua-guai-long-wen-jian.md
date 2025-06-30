@@ -8,11 +8,11 @@ description: 万物的起源？
 
 本部分文件位&#x4E8E;**（以<命名空间>层为根目录）**<kbd>./spcurs/spawner</kbd>文件夹下。
 
-#### Json文件命名
+### Json文件命名
 
 任意命名，符合MC命名空间ID需求即可。需要注意的是，任何情况下，spawner 文件夹内的文件夹结构不会反映至游戏内，**即仅有json文件的文件名以及该文件所在数据包命名空间组成其游戏内命名空间ID**。
 
-#### ScSpawner
+### ScSpawner
 
 你在该部分所创建的所有json文件的**最顶层结构应当为ScSpawner**，所有其余的结构均隶属于ScSpawner中的某一个字段或子字段。
 
@@ -20,7 +20,7 @@ description: 万物的起源？
 
 ```json
 {
-  "active_range": <float>
+  "active_range": <float>,
   "display": <DisplayConext>,
   "global_effects": <ScEffects>,
   "creatures": <ScCreatures>,
@@ -34,7 +34,7 @@ description: 万物的起源？
 * global\_effects: 见[ScEffects](sceffect.md)
 * creatures: 见[ScCreatures](shua-guai-long-wen-jian.md#sccreatures)
 
-#### DisplayContext
+### DisplayContext
 
 ```json
 {
@@ -59,7 +59,7 @@ description: 万物的起源？
 * name：一个字符串，用于描述该刷怪笼配置在游戏内的显示名称；**注意，该名称将被直接显示，不作为一个可翻译键值存在**
 * rarity：一个1\~6的整数（包含），用于描述刷怪笼配置的稀有度，影响物品显示颜色
 
-#### ScCreatures
+### ScCreatures
 
 ScCreatures主要用于存储[ScCreature](shua-guai-long-wen-jian.md#sccreature)，即一个刷怪笼中每一个生物生成单元的配置信息。
 
@@ -74,7 +74,7 @@ ScCreatures主要用于存储[ScCreature](shua-guai-long-wen-jian.md#sccreature)
 
 * name: 一个任意字符串，符合MC命名空间ID要求即可
 
-#### ScCreature
+### ScCreature
 
 ```
 {
@@ -88,7 +88,7 @@ ScCreatures主要用于存储[ScCreature](shua-guai-long-wen-jian.md#sccreature)
 * spawn\_config: 见[SpawnConfig](shua-guai-long-wen-jian.md#spawnconfig)
 * effects: 见ScEffects
 
-#### SpawnConfig
+### SpawnConfig
 
 ```
 {
@@ -113,7 +113,7 @@ ScCreatures主要用于存储[ScCreature](shua-guai-long-wen-jian.md#sccreature)
 * interval：一个整数，在刷怪笼处于活动状态时，每经过多少游戏刻（tick），该生成单元进行生成
 * range：一个浮点数，该生成单元会尝试在以刷怪笼为中心，半径range的格数内尝试**随机**位置进行生成
 
-#### ScEffects
+### ScEffects
 
 ScEffects主要用于存储[ScEffect](sceffect.md)，其主要用于给刷怪笼产出的生物进行属性，效果，AI等等实体内容进行修正。
 
