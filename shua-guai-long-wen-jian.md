@@ -24,7 +24,8 @@ description: 万物的起源？
   "display": <DisplayConext>,
   "global_effects": <ScEffects>,
   "creatures": <ScCreatures>,
-  "loot_table": <ResourceLocation>
+  "loot_table": <ResourceLocation>,
+  "children": <ScChildren>
 }
 ```
 
@@ -33,6 +34,7 @@ description: 万物的起源？
 * display：见[DisplayContext](shua-guai-long-wen-jian.md#displaycontext)
 * global\_effects: 见[ScEffects](sceffect.md)
 * creatures: 见[ScCreatures](shua-guai-long-wen-jian.md#sccreatures)
+* children:见ScChildren
 
 ### DisplayContext
 
@@ -129,6 +131,37 @@ ScEffects主要用于存储[ScEffect](sceffect.md)，其主要用于给刷怪笼
 ```
 
 * name: 一个**根据添加的effect种类不同，具有特殊要求**的命名空间ID，详细内容见具体的某个[ScEffect](sceffect.md)
+
+### ScChildren
+
+ScChildren主要用于存储ScChildConfig，其用于设置当前刷怪笼下辖的子刷怪笼，子刷怪笼在满足一定条件后会生成；**注意：当刷怪笼作为子刷怪笼生成时，其ScChildren字段会被忽略（即不能迭代生成）**
+
+```json
+{
+  "list": [
+    <ScChildConfig1>
+    <ScChildConfig2>
+      ]
+}
+```
+
+### ScChildConfig
+
+```json
+{
+    "id":<ResourceLocation>,
+    "delay":<long>,
+    "amt":<int>,
+    "offset":[x,y,z],
+    "range":<double>
+}
+```
+
+* id: 一个命名空间ID，指向一个刷怪笼配置的**注册ID**
+* delay：一个整数，在刷怪笼处于活动状态经过多少游戏刻（tick）后，当前子刷怪笼生成
+* amt：一个整数，尝试生成该种子刷怪笼的数量
+* offset：三元数&#x7EC4;**（不满足要求的在游戏内被重写为\[0,0,0]）**，表示子刷怪笼会尝试以父刷怪笼位置偏移offset后尝试生成
+*
 
 ### Example
 
